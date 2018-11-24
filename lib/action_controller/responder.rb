@@ -210,10 +210,10 @@ module ActionController #:nodoc:
     def api_behavior
       raise MissingRenderer.new(format) unless has_renderer?
 
-      if get?
+      if get? || patch? || put?
         display resource
       elsif post?
-        display resource, :status => :created, :location => api_location
+        display resource, :status => :created #, :location => api_location
       else
         head :no_content
       end
