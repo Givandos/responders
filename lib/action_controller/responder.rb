@@ -130,6 +130,7 @@ module ActionController #:nodoc:
       @controller = controller
       @request = @controller.request
       @format = @controller.formats.first
+      @format = :json if @format == :html
       @resource = resources.last
       @resources = resources
       @options = options
