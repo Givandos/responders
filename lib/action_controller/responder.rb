@@ -130,7 +130,7 @@ module ActionController #:nodoc:
       @controller = controller
       @request = @controller.request
       @format = @controller.formats.first
-      @format = :json if @format == :html
+      @format = :json if %i[multipart_form html].include? @format
       @resource = resources.last
       @resources = resources
       @options = options
